@@ -11,17 +11,17 @@ typedef struct{
 }Objeto;
 
 typedef struct{
-    Objeto *array[N];
+    Objeto array[N];
     int topo;
 }Stack;
 
 void iniciaPilha(Stack *pilha);
 bool estaVazia(Stack *pilha);
 bool estaCheia(Stack *pilha);
-void push(Objeto obj,Stack *pilha);
-void pop(Stack *pilha, Objeto *obj);
+void push(Stack *pilha,Objeto obj);
+void pop(Stack *pilha);
 int size(Stack *pilha);
 Objeto top(Stack *pilha);
 void print(Stack *pilha);
-
+void check(Stack *pilha);
 #endif //PILHA_LIBRARY_H
