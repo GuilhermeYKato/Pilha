@@ -53,14 +53,18 @@ void desempilha(PilhaDinamica *p, Objeto *obj){
 int tamanhoPilha(PilhaDinamica *p){
     printf("Tamanho: %d\n", p->tamanho);
 }
-void topo(PilhaDinamica *p, Objeto *obj){
+void topo(PilhaDinamica *p){
+    if(!estaVazia(p)) {
     printf("Topo: %d\n", p->topo->obj.chave);
+    } else {
+        printf("Topo está vazio\n");
+    }
 }
 void imprimePilha(PilhaDinamica *p){
     printf("{");
     PtrNoPilha ptr;
-    for(ptr = p->topo; ptr !=NULL ;ptr = p->topo->proximo){
-        printf("%d ", p->tamanho);
+    for(ptr = p->topo; ptr !=NULL ;ptr = ptr->proximo){
+        printf("%d ", ptr->obj.chave);
     }
     printf("}");
 
@@ -70,27 +74,26 @@ int main() {
     PilhaDinamica p;
     Objeto o;
     iniciaPilha(&p);
-    /*
-    for(int i = 0; i < 10; i++){
+    
+    for(int i = 2; i < 10; i++){
         o.chave = i;
         empilha(o,&p);
         imprimePilha(&p);
         tamanhoPilha(&p);
-        topo(&p,&o);
+        topo(&p);
         printf("\n\n");
 
     }
 
-*/
+        for(int i = 2; i < 10; i++){
+        o.chave = i;
+        desempilha(&p, &o);
+        imprimePilha(&p);
+        tamanhoPilha(&p);
+        topo(&p);
+        printf("\n\n");
 
-    o.chave = 1;
-    empilha(o,&p);
-    imprimePilha(&p);
-
-    o.chave = 2;
-    empilha(o,&p);
-    imprimePilha(&p);
-
+    }
 
 
     return 0;
