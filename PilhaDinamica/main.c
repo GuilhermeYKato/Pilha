@@ -75,7 +75,7 @@ int main() {
     Objeto o;
     iniciaPilha(&p);
     
-    for(int i = 2; i < 10; i++){
+    for(int i = 0; i < 10; i++){
         o.chave = i;
         empilha(o,&p);
         imprimePilha(&p);
@@ -85,7 +85,7 @@ int main() {
 
     }
 
-        for(int i = 2; i < 10; i++){
+        for(int i = 0; i < 10; i++){
         o.chave = i;
         desempilha(&p, &o);
         imprimePilha(&p);
